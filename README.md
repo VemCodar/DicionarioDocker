@@ -104,7 +104,12 @@ Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. 
    ```bash
    docker image prune
    ```
-   Este comando apaga todas as imagens que não estão sendo usadas por nenhum contêiner.
+
+4. **Remove todas as imagens que não estão sendo usadas por containers**
+   ```bash
+   docker image prune -a
+   ```
+   
 
 # Gerenciando Contêineres
 
@@ -128,13 +133,18 @@ Para listar os contêineres em execução e os que estão parados, você pode us
 
    Este comando lista todos os contêineres, tanto os em execução quanto os parados.
 
-Se você deseja apenas listar os contêineres que estão parados (ou seja, não em execução), você pode usar um comando de filtro junto com o comando `docker ps -a`. Por exemplo:
-
-```bash
-docker ps -a --filter "status=exited"
-```
+   Se você deseja apenas listar os contêineres que estão parados (ou seja, não em execução), você pode usar um comando de filtro junto com o comando `docker ps -a`. Por exemplo:
+   
+   ```bash
+   docker ps -a --filter "status=exited"
+   ```
 
 Isso listará apenas os contêineres que estão no estado "exited" (parados).
+
+3. **Pausa todos os containers que estão rodando**
+   ```bash
+   docker kill $ (docker ps -q)
+   ```   
 
 ## Removendo Contêineres
 
@@ -156,13 +166,34 @@ Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm
    ```bash
    docker container prune
    ```
-   Este comando apaga todos os contêineres parados.
 
 4. **Apagar um contêiner forçadamente (em execução ou parado):**
    ```bash
    docker rm -f <container_id>
    ```
    Este comando força a remoção do contêiner, mesmo que ele esteja em execução.
+
+5. **Remove todos os containers pausados, todo o cache de build, todas as redes  não utilizadas por containers e todas as imagens sem tags**
+   ```bash
+   docker rm $(docker ps -a -q)
+   ```
+
+## Pausando Contêineres
+
+1. **Para pausar um contêiner específico:**
+   ```bash
+   docker pause <nome_do_contêiner>
+   ```
+
+2. **Para pausar vários contêineres simultaneamente:**
+   ```bash
+   docker pause <nome_do_contêiner1> <nome_do_contêiner2> <nome_do_contêinerN>
+   ```
+
+3. **Pausa todos os containers em execução**
+   ```bash
+   docker kill $ (docker ps -q)
+   ```
 
 ## Interagindo com um contêiner em execução
 
@@ -185,31 +216,31 @@ Isso abrirá um shell interativo dentro do contêiner especificado, permitindo q
 
 ### Exemplo prático
 
-#### Iniciar o contêiner Ubuntu em segundo plano
-```bash
-docker run -d --name meu-container-ubuntu ubuntu:latest sleep infinity
-```
+1. Iniciar o contêiner Ubuntu em segundo plano
+   ```bash
+   docker run -d --name meu-container-ubuntu ubuntu:latest sleep infinity
+   ```
 
-#### Instalar o curl dentro do contêiner
-```bash
-docker exec meu-container-ubuntu apt-get update
+2. Instalar o curl dentro do contêiner
+   ```bash
+   docker exec meu-container-ubuntu apt-get update
+   
+   docker exec meu-container-ubuntu apt-get install -y curl
+   ```
 
-docker exec meu-container-ubuntu apt-get install -y curl
-```
+3. Interagir com o contêiner e executar o comando curl
+   ```bash
+   docker exec meu-container-ubuntu curl https://www.vemcodar.com.br
+   ```
 
-#### Interagir com o contêiner e executar o comando curl
-```bash
-docker exec meu-container-ubuntu curl https://www.vemcodar.com.br
-```
+4.  Remover o contêiner após a execução do curl
+   ```bash
+   docker rm -f meu-container-ubuntu
+   ```
 
-####  Remover o contêiner após a execução do curl
-```bash
-docker rm -f meu-container-ubuntu
-```
-
-#### Remover a imagem do Ubuntu
-```bash
-docker rmi ubuntu:latest
-```
+5. Remover a imagem do Ubuntu
+   ```bash
+   docker rmi ubuntu:latest
+   ```
 
 ---
