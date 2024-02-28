@@ -185,19 +185,31 @@ Isso abrirá um shell interativo dentro do contêiner especificado, permitindo q
 
 ### Exemplo prático
 
-# Iniciar o contêiner Ubuntu em segundo plano
+#### Iniciar o contêiner Ubuntu em segundo plano
+```bash
 docker run -d --name meu-container-ubuntu ubuntu:latest sleep infinity
+```
 
-# Instalar o curl dentro do contêiner
+#### Instalar o curl dentro do contêiner
+```bash
 docker exec meu-container-ubuntu apt-get update
+
 docker exec meu-container-ubuntu apt-get install -y curl
+```
 
-# Interagir com o contêiner e executar o comando curl
+#### Interagir com o contêiner e executar o comando curl
+```bash
 docker exec meu-container-ubuntu curl https://www.vemcodar.com.br
+```
 
-# Remover o contêiner após a execução do curl
+####  Remover o contêiner após a execução do curl
+```bash
 docker rm -f meu-container-ubuntu
+```
 
-# Remover a imagem do Ubuntu
+#### Remover a imagem do Ubuntu
+```bash
 docker rmi ubuntu:latest
+```
 
+---
