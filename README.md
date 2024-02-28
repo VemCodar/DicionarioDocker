@@ -107,3 +107,63 @@ Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. 
    Este comando apaga todas as imagens que não estão sendo usadas por nenhum contêiner.
 
 Lembre-se de que você pode usar o nome da imagem em vez do ID da imagem se preferir. Certifique-se de substituir `<image_id>` pelos IDs reais das imagens que você deseja apagar. Se você usar o nome da imagem, ele deve ser o nome completo, incluindo a tag. Por exemplo: `<nome_da_imagem>:<tag>`.
+
+# Gerenciando Contêineres
+
+## Listando Contêineres
+
+Para listar os contêineres em execução e os que estão parados, você pode usar os seguintes comandos Docker:
+
+1. **Listar contêineres em execução:**
+   
+   ```bash
+   docker ps
+   ```
+
+   Este comando lista todos os contêineres em execução no momento.
+
+2. **Listar todos os contêineres, incluindo os parados:**
+   
+   ```bash
+   docker ps -a
+   ```
+
+   Este comando lista todos os contêineres, tanto os em execução quanto os parados.
+
+Se você deseja apenas listar os contêineres que estão parados (ou seja, não em execução), você pode usar um comando de filtro junto com o comando `docker ps -a`. Por exemplo:
+
+```bash
+docker ps -a --filter "status=exited"
+```
+
+Isso listará apenas os contêineres que estão no estado "exited" (parados).
+
+## Removendo Contêineres
+
+Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm`. Aqui estão os comandos:
+
+1. **Apagar um contêiner específico:**
+   ```bash
+   docker rm <container_id>
+   ```
+   Substitua `<container_id>` pelo ID do contêiner que você deseja apagar.
+
+2. **Apagar vários contêineres ao mesmo tempo:**
+   ```bash
+   docker rm <container_id_1> <container_id_2> ... <container_id_n>
+   ```
+   Substitua `<container_id_1>`, `<container_id_2>`, etc., pelos IDs dos contêineres que você deseja apagar.
+
+3. **Apagar todos os contêineres parados:**
+   ```bash
+   docker container prune
+   ```
+   Este comando apaga todos os contêineres parados.
+
+4. **Apagar um contêiner forçadamente (em execução ou parado):**
+   ```bash
+   docker rm -f <container_id>
+   ```
+   Este comando força a remoção do contêiner, mesmo que ele esteja em execução.
+
+Lembre-se de que você pode usar o nome do contêiner em vez do ID do contêiner se preferir. Certifique-se de substituir `<container_id>` pelos IDs reais dos contêineres que você deseja apagar. Se você usar o nome do contêiner, ele deve ser o nome completo do contêiner. Por exemplo: `<nome_do_contêiner>`.
