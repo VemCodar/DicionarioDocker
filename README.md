@@ -106,8 +106,6 @@ Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. 
    ```
    Este comando apaga todas as imagens que não estão sendo usadas por nenhum contêiner.
 
-Lembre-se de que você pode usar o nome da imagem em vez do ID da imagem se preferir. Certifique-se de substituir `<image_id>` pelos IDs reais das imagens que você deseja apagar. Se você usar o nome da imagem, ele deve ser o nome completo, incluindo a tag. Por exemplo: `<nome_da_imagem>:<tag>`.
-
 # Gerenciando Contêineres
 
 ## Listando Contêineres
@@ -166,4 +164,40 @@ Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm
    ```
    Este comando força a remoção do contêiner, mesmo que ele esteja em execução.
 
-Lembre-se de que você pode usar o nome do contêiner em vez do ID do contêiner se preferir. Certifique-se de substituir `<container_id>` pelos IDs reais dos contêineres que você deseja apagar. Se você usar o nome do contêiner, ele deve ser o nome completo do contêiner. Por exemplo: `<nome_do_contêiner>`.
+## Interagindo com um contêiner em execução
+
+Para interagir com um contêiner em execução, você pode usar o comando `docker exec`. Este comando permite executar comandos dentro de um contêiner em execução. Aqui está o formato geral do comando:
+
+```bash
+docker exec [opções] <container_id ou container_name> [comando]
+```
+
+- `<container_id ou container_name>` é o ID ou o nome do contêiner com o qual você deseja interagir.
+- `[comando]` é o comando que você deseja executar dentro do contêiner.
+
+Por exemplo, para acessar um shell interativo dentro de um contêiner em execução, você pode usar o seguinte comando:
+
+```bash
+docker exec -it <container_id ou container_name> /bin/bash
+```
+
+Isso abrirá um shell interativo dentro do contêiner especificado, permitindo que você execute comandos e interaja com o ambiente dentro do contêiner.
+
+### Exemplo prático
+
+# Iniciar o contêiner Ubuntu em segundo plano
+docker run -d --name meu-container-ubuntu ubuntu:latest sleep infinity
+
+# Instalar o curl dentro do contêiner
+docker exec meu-container-ubuntu apt-get update
+docker exec meu-container-ubuntu apt-get install -y curl
+
+# Interagir com o contêiner e executar o comando curl
+docker exec meu-container-ubuntu curl https://www.vemcodar.com.br
+
+# Remover o contêiner após a execução do curl
+docker rm -f meu-container-ubuntu
+
+# Remover a imagem do Ubuntu
+docker rmi ubuntu:latest
+
