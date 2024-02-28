@@ -65,3 +65,45 @@ Aqui está uma lista de comandos Docker para realizar as ações solicitadas:
    ```
    - `<nome_do_contêiner>` é o nome que você deseja dar ao contêiner.
    - `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o contêiner.
+
+# Gerenciando Imagens
+
+## Listando Imagens
+
+Para listar as imagens Docker disponíveis localmente, você pode usar o comando `docker images` ou `docker image ls`. Ambos os comandos têm o mesmo efeito e fornecem uma lista das imagens Docker disponíveis no sistema local. Aqui está o comando:
+
+```bash
+docker images
+```
+
+ou
+
+```bash
+docker image ls
+```
+
+Ambos os comandos produzirão uma saída semelhante, mostrando informações sobre as imagens, como nome, tag, ID da imagem, tamanho e quando foram criadas.
+
+## Removendo Imagens
+
+Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. Aqui estão os comandos para apagar imagens:
+
+1. **Apagar uma imagem específica:**
+   ```bash
+   docker rmi <image_id>
+   ```
+   Substitua `<image_id>` pelo ID da imagem que você deseja apagar.
+
+2. **Apagar várias imagens ao mesmo tempo:**
+   ```bash
+   docker rmi <image_id_1> <image_id_2> ... <image_id_n>
+   ```
+   Substitua `<image_id_1>`, `<image_id_2>`, etc., pelos IDs das imagens que você deseja apagar.
+
+3. **Apagar todas as imagens não utilizadas (sem nenhum contêiner associado):**
+   ```bash
+   docker image prune
+   ```
+   Este comando apaga todas as imagens que não estão sendo usadas por nenhum contêiner.
+
+Lembre-se de que você pode usar o nome da imagem em vez do ID da imagem se preferir. Certifique-se de substituir `<image_id>` pelos IDs reais das imagens que você deseja apagar. Se você usar o nome da imagem, ele deve ser o nome completo, incluindo a tag. Por exemplo: `<nome_da_imagem>:<tag>`.
