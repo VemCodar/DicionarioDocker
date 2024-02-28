@@ -1,4 +1,4 @@
-Listagem de todos os comandos Docker.
+# Listagem de todos os comandos Docker.
 
 É possível obter essa mesma listagem executando `docker --help`
 
@@ -34,3 +34,34 @@ Aqui está a tabela com uma coluna adicional contendo exemplos de uso para cada 
 | unpause  | Despausa todos os processos dentro de um ou mais contêineres.                                        | `docker unpause <container_id>`                                                                      |
 | update   | Atualiza a configuração de um ou mais contêineres.                                                  | `docker update --memory 512m <container_id>`                                                         |
 | wait     | Bloqueia até que um ou mais contêineres parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
+
+# Processo de criação de imagens
+
+Aqui está uma lista de comandos Docker para realizar as ações solicitadas:
+
+1. **Efetuar login no Docker Registry:**
+   ```bash
+   docker login <registry_url>
+   ```
+   - `<registry_url>` é o URL do Registry onde você deseja fazer login. Caso não informe essa url, o docker assume que é o Docker Registry
+
+2. **Criar uma imagem a partir de um Dockerfile:**
+   ```bash
+   docker build -t <nome_da_imagem>:<tag> <caminho_para_o_Dockerfile>
+   ```
+   - `<nome_da_imagem>` é o nome que você deseja dar à imagem.
+   - `<tag>` é a tag (versão ou identificador da versão) que você deseja atribuir à imagem. Por exemplo v1.0.0
+   - `<caminho_para_o_Dockerfile>` é o caminho para o Dockerfile no sistema de arquivos local. Caso o comando seja executado na pasta onde encontra-se o arquivo DOCKERFILE, pode-se utilizar `.` ao invés do caminho.
+
+3. **Publicar a imagem no Docker Registry:**
+   ```bash
+   docker push <nome_da_imagem>
+   ```
+   - `<nome_da_imagem>` é o nome da imagem que você deseja publicar.
+
+4. **Rodar um contêiner com a imagem criada:**
+   ```bash
+   docker run -d --name <nome_do_contêiner> <nome_da_imagem>
+   ```
+   - `<nome_do_contêiner>` é o nome que você deseja dar ao contêiner.
+   - `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o contêiner.
