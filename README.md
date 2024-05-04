@@ -92,17 +92,6 @@ docker push <nome_da_imagem>
 
 ---
 
-### Criando um container
-
-```bash
-docker run -d --name <nome_do_container> <nome_da_imagem>
-```
-
-- `<nome_do_container>` é o nome que você deseja dar ao container.
-- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
-
----
-
 ### Listando Imagens
 
 Para listar as imagens Docker disponíveis localmente, você pode usar o comando `docker images` ou `docker image ls`. Ambos os comandos têm o mesmo efeito e fornecem uma lista das imagens Docker disponíveis no sistema local. Aqui está o comando:
@@ -162,6 +151,17 @@ docker image prune -a
 ---
 
 ## Docker Containers
+
+### Criando um container
+
+```bash
+docker run -d --name <nome_do_container> <nome_da_imagem>
+```
+
+- `<nome_do_container>` é o nome que você deseja dar ao container.
+- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
+
+---
 
 ### Listando Containers
 
