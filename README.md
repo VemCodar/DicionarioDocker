@@ -9,7 +9,7 @@
   - [Listando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#listando-containers)
   - [Removendo Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-containers)
   - [Pausando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#pausando-containers)
-  - [Interagindo com um contêiner em execução](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#interagindo-com-um-containers-em-execu%C3%A7%C3%A3o)
+  - [Interagindo com um container em execução](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#interagindo-com-um-container-em-execu%C3%A7%C3%A3o)
   - [Exemplo prático](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#exemplo-pr%C3%A1tico)
 
 ## Listagem de todos os comandos Docker
