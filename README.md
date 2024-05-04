@@ -20,33 +20,33 @@ Aqui está a tabela com uma coluna adicional contendo exemplos de uso para cada 
 
 | Comando  | Descrição                                                                                           | Exemplo de Uso                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| attach   | Anexa as entradas padrão locais, saídas e fluxos de erro a um contêiner em execução.              | `docker attach <container_id>`                                                                      |
-| commit   | Cria uma nova imagem a partir das alterações de um contêiner.                                       | `docker commit <container_id> <new_image_name>`                                                      |
-| cp       | Copia arquivos/pastas entre um contêiner e o sistema de arquivos local.                            | `docker cp <container_id>:<caminho_no_contêiner> <caminho_local>`                                    |
-| create   | Cria um novo contêiner.                                                                            | `docker create <nome_da_imagem>`                                                                     |
-| diff     | Inspecciona as alterações em arquivos ou diretórios no sistema de arquivos de um contêiner.        | `docker diff <container_id>`                                                                         |
+| attach   | Anexa as entradas padrão locais, saídas e fluxos de erro a um container em execução.              | `docker attach <container_id>`                                                                      |
+| commit   | Cria uma nova imagem a partir das alterações de um container.                                       | `docker commit <container_id> <new_image_name>`                                                      |
+| cp       | Copia arquivos/pastas entre um container e o sistema de arquivos local.                            | `docker cp <container_id>:<caminho_no_container> <caminho_local>`                                    |
+| create   | Cria um novo container.                                                                            | `docker create <nome_da_imagem>`                                                                     |
+| diff     | Inspecciona as alterações em arquivos ou diretórios no sistema de arquivos de um container.        | `docker diff <container_id>`                                                                         |
 | events   | Obtém eventos em tempo real do servidor.                                                            | `docker events`                                                                                      |
-| export   | Exporta o sistema de arquivos de um contêiner como um arquivo tar.                                  | `docker export <container_id> > arquivo.tar`                                                         |
+| export   | Exporta o sistema de arquivos de um container como um arquivo tar.                                  | `docker export <container_id> > arquivo.tar`                                                         |
 | history  | Mostra o histórico de uma imagem.                                                                  | `docker history <image_name>`                                                                        |
 | import   | Importa o conteúdo de um arquivo tar para criar uma imagem de sistema de arquivos.                 | `docker import arquivo.tar`                                                                          |
 | inspect  | Retorna informações de baixo nível sobre objetos Docker.                                             | `docker inspect <object_id>`                                                                         |
 | kill     | Mata um ou mais Containers em execução.                                                           | `docker kill <container_id>`                                                                         |
 | load     | Carrega uma imagem de um arquivo tar ou STDIN.                                                      | `docker load < arquivo.tar`                                                                           |
-| logs     | Busca os logs de um contêiner.                                                                      | `docker logs <container_id>`                                                                         |
-| pause    | Pausa todos os processos dentro de um ou mais Containers.                                          | `docker pause <container_id>`                                                                        |
-| port     | Lista mapeamentos de porta ou um mapeamento específico para o contêiner.                             | `docker port <container_id>`                                                                         |
-| rename   | Renomeia um contêiner.                                                                              | `docker rename <container_name> <new_container_name>`                                                |
-| restart  | Reinicia um ou mais Containers.                                                                   | `docker restart <container_id>`                                                                      |
-| rm       | Remove um ou mais Containers.                                                                     | `docker rm <container_id>`                                                                           |
+| logs     | Busca os logs de um container.                                                                      | `docker logs <container_id>`                                                                         |
+| pause    | Pausa todos os processos dentro de um ou mais containers.                                          | `docker pause <container_id>`                                                                        |
+| port     | Lista mapeamentos de porta ou um mapeamento específico para o container.                             | `docker port <container_id>`                                                                         |
+| rename   | Renomeia um container.                                                                              | `docker rename <container_name> <new_container_name>`                                                |
+| restart  | Reinicia um ou mais containers.                                                                   | `docker restart <container_id>`                                                                      |
+| rm       | Remove um ou mais containers.                                                                     | `docker rm <container_id>`                                                                           |
 | rmi      | Remove uma ou mais imagens.                                                                        | `docker rmi <image_id>`                                                                              |
 | save     | Salva uma ou mais imagens em um arquivo tar (transmitido para STDOUT por padrão).                   | `docker save <image_name> > arquivo.tar`                                                             |
 | start    | Inicia um ou mais Containers parados.                                                             | `docker start <container_id>`                                                                        |
-| stats    | Exibe um fluxo ao vivo das estatísticas de uso de recursos do(s) contêiner(es).                     | `docker stats <container_id>`                                                                        |
+| stats    | Exibe um fluxo ao vivo das estatísticas de uso de recursos do(s) container(es).                     | `docker stats <container_id>`                                                                        |
 | stop     | Para um ou mais Containers em execução.                                                           | `docker stop <container_id>`                                                                         |
 | tag      | Cria uma tag TARGET_IMAGE que se refere a SOURCE_IMAGE.                                              | `docker tag <image_id> <new_image_name>:<tag>`                                                        |
-| top      | Exibe os processos em execução de um contêiner.                                                     | `docker top <container_id>`                                                                          |
-| unpause  | Despausa todos os processos dentro de um ou mais Containers.                                        | `docker unpause <container_id>`                                                                      |
-| update   | Atualiza a configuração de um ou mais Containers.                                                  | `docker update --memory 512m <container_id>`                                                         |
+| top      | Exibe os processos em execução de um container.                                                     | `docker top <container_id>`                                                                          |
+| unpause  | Despausa todos os processos dentro de um ou mais containers.                                        | `docker unpause <container_id>`                                                                      |
+| update   | Atualiza a configuração de um ou mais containers.                                                  | `docker update --memory 512m <container_id>`                                                         |
 | wait     | Bloqueia até que um ou mais Containers parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
 
 ## Docker Images
@@ -65,14 +65,14 @@ docker build -t <nome_da_imagem>:<tag> <caminho_para_o_Dockerfile>
 - `<tag>` é a tag (versão ou identificador da versão) que você deseja atribuir à imagem. Por exemplo v1.0.0
 - `<caminho_para_o_Dockerfile>` é o caminho para o Dockerfile no sistema de arquivos local. Caso o comando seja executado na pasta onde encontra-se o arquivo DOCKERFILE, pode-se utilizar `.` ao invés do caminho.
 
-**Rodar um contêiner com a imagem criada:**
+**Rodar um container com a imagem criada:**
 
 ```bash
-docker run -d --name <nome_do_contêiner> <nome_da_imagem>
+docker run -d --name <nome_do_container> <nome_da_imagem>
 ```
 
-- `<nome_do_contêiner>` é o nome que você deseja dar ao contêiner.
-- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o contêiner.
+- `<nome_do_container>` é o nome que você deseja dar ao container.
+- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
 
 ### Processo de publicação de imagens
 
@@ -128,7 +128,7 @@ docker rmi <image_id_1> <image_id_2> ... <image_id_n>
 
 Substitua `<image_id_1>`, `<image_id_2>`, etc., pelos IDs das imagens que você deseja apagar.
 
-**Apagar todas as imagens não utilizadas (sem nenhum contêiner associado):**
+**Apagar todas as imagens não utilizadas (sem nenhum container associado):**
 
 ```bash
 docker image prune
@@ -180,13 +180,13 @@ docker kill $ (docker ps -q)
 
 Para apagar um ou mais Containers Docker, você pode usar o comando `docker rm`. Aqui estão os comandos:
 
-**Apagar um contêiner específico:**
+**Apagar um container específico:**
 
 ```bash
 docker rm <container_id>
 ```
 
-Substitua `<container_id>` pelo ID do contêiner que você deseja apagar.
+Substitua `<container_id>` pelo ID do container que você deseja apagar.
 
 **Apagar vários Containers ao mesmo tempo:**
 
@@ -202,13 +202,13 @@ Substitua `<container_id_1>`, `<container_id_2>`, etc., pelos IDs dos Containers
 docker container prune
 ```
 
-**Apagar um contêiner forçadamente (em execução ou parado):**
+**Apagar um container forçadamente (em execução ou parado):**
 
 ```bash
 docker rm -f <container_id>
 ```
 
-Este comando força a remoção do contêiner, mesmo que ele esteja em execução.
+Este comando força a remoção do container, mesmo que ele esteja em execução.
 
 **Remove todos os containers pausados, todo o cache de build, todas as redes  não utilizadas por containers e todas as imagens sem tags**
 
@@ -218,16 +218,16 @@ docker rm $(docker ps -a -q)
 
 ### Pausando Containers
 
-**Para pausar um contêiner específico:**
+**Para pausar um container específico:**
 
 ```bash
-docker pause <nome_do_contêiner>
+docker pause <nome_do_container>
 ```
 
 **Para pausar vários Containers simultaneamente:**
 
 ```bash
-docker pause <nome_do_contêiner1> <nome_do_contêiner2> <nome_do_contêinerN>
+docker pause <nome_do_container1> <nome_do_container2> <nome_do_containerN>
 ```
 
 **Pausa todos os containers em execução**
@@ -238,32 +238,32 @@ docker kill $ (docker ps -q)
 
 ### Interagindo com um container em execução
 
-Para interagir com um contêiner em execução, você pode usar o comando `docker exec`. Este comando permite executar comandos dentro de um contêiner em execução. Aqui está o formato geral do comando:
+Para interagir com um container em execução, você pode usar o comando `docker exec`. Este comando permite executar comandos dentro de um container em execução. Aqui está o formato geral do comando:
 
 ```bash
 docker exec [opções] <container_id ou container_name> [comando]
 ```
 
-- `<container_id ou container_name>` é o ID ou o nome do contêiner com o qual você deseja interagir.
-- `[comando]` é o comando que você deseja executar dentro do contêiner.
+- `<container_id ou container_name>` é o ID ou o nome do container com o qual você deseja interagir.
+- `[comando]` é o comando que você deseja executar dentro do container.
 
-Por exemplo, para acessar um shell interativo dentro de um contêiner em execução, você pode usar o seguinte comando:
+Por exemplo, para acessar um shell interativo dentro de um container em execução, você pode usar o seguinte comando:
 
 ```bash
 docker exec -it <container_id ou container_name> /bin/bash
 ```
 
-Isso abrirá um shell interativo dentro do contêiner especificado, permitindo que você execute comandos e interaja com o ambiente dentro do contêiner.
+Isso abrirá um shell interativo dentro do container especificado, permitindo que você execute comandos e interaja com o ambiente dentro do container.
 
 ### Exemplo prático
 
-Iniciar o contêiner Ubuntu em segundo plano
+Iniciar o container Ubuntu em segundo plano
 
 ```bash
 docker run -d --name meu-container-ubuntu ubuntu:latest sleep infinity
 ```
 
-Instalar o curl dentro do contêiner
+Instalar o curl dentro do container
 
 ```bash
 docker exec meu-container-ubuntu apt-get update
@@ -271,13 +271,13 @@ docker exec meu-container-ubuntu apt-get update
 docker exec meu-container-ubuntu apt-get install -y curl
 ```
 
-Interagir com o contêiner e executar o comando curl
+Interagir com o container e executar o comando curl
 
 ```bash
 docker exec meu-container-ubuntu curl https://www.vemcodar.com.br
 ```
 
-Remover o contêiner após a execução do curl
+Remover o container após a execução do curl
 
 ```bash
 docker rm -f meu-container-ubuntu
