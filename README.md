@@ -1,4 +1,17 @@
-# Listagem de todos os comandos Docker.
+# Indice
+
+- Listagem de todos os comandos Docker
+- Docker Images
+  - Processo de criação de imagens
+  - Removendo Imagens
+- Docker Containers
+  - Listando Contêineres
+  - Removendo Contêineres
+  - Pausando Contêineres
+  - Interagindo com um contêiner em execução
+  - Exemplo prático
+
+## Listagem de todos os comandos Docker
 
 É possível obter essa mesma listagem executando `docker --help`
 
@@ -35,7 +48,9 @@ Aqui está a tabela com uma coluna adicional contendo exemplos de uso para cada 
 | update   | Atualiza a configuração de um ou mais contêineres.                                                  | `docker update --memory 512m <container_id>`                                                         |
 | wait     | Bloqueia até que um ou mais contêineres parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
 
-# Processo de criação de imagens
+## Docker Images
+
+### Processo de criação de imagens
 
 Aqui está uma lista de comandos Docker para realizar as ações solicitadas:
 
@@ -66,9 +81,7 @@ Aqui está uma lista de comandos Docker para realizar as ações solicitadas:
    - `<nome_do_contêiner>` é o nome que você deseja dar ao contêiner.
    - `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o contêiner.
 
-# Gerenciando Imagens
-
-## Listando Imagens
+### Listando Imagens
 
 Para listar as imagens Docker disponíveis localmente, você pode usar o comando `docker images` ou `docker image ls`. Ambos os comandos têm o mesmo efeito e fornecem uma lista das imagens Docker disponíveis no sistema local. Aqui está o comando:
 
@@ -84,7 +97,7 @@ docker image ls
 
 Ambos os comandos produzirão uma saída semelhante, mostrando informações sobre as imagens, como nome, tag, ID da imagem, tamanho e quando foram criadas.
 
-## Removendo Imagens
+### Removendo Imagens
 
 Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. Aqui estão os comandos para apagar imagens:
 
@@ -111,9 +124,9 @@ Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. 
    ```
    
 
-# Gerenciando Contêineres
+## Docker Containers
 
-## Listando Contêineres
+### Listando Contêineres
 
 Para listar os contêineres em execução e os que estão parados, você pode usar os seguintes comandos Docker:
 
@@ -146,7 +159,7 @@ Isso listará apenas os contêineres que estão no estado "exited" (parados).
    docker kill $ (docker ps -q)
    ```   
 
-## Removendo Contêineres
+### Removendo Contêineres
 
 Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm`. Aqui estão os comandos:
 
@@ -178,7 +191,7 @@ Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm
    docker rm $(docker ps -a -q)
    ```
 
-## Pausando Contêineres
+### Pausando Contêineres
 
 1. **Para pausar um contêiner específico:**
    ```bash
@@ -195,7 +208,7 @@ Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm
    docker kill $ (docker ps -q)
    ```
 
-## Interagindo com um contêiner em execução
+### Interagindo com um contêiner em execução
 
 Para interagir com um contêiner em execução, você pode usar o comando `docker exec`. Este comando permite executar comandos dentro de um contêiner em execução. Aqui está o formato geral do comando:
 
