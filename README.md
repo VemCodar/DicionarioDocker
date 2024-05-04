@@ -6,7 +6,7 @@
   - [Processo de publicação de imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#processo-de-publica%C3%A7%C3%A3o-de-imagens)
   - [Removendo Imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-imagens)
 - [Docker Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#docker-containers)
-  - [Criando um container](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#criando_um-containers)
+  - [Criando um container](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#criando-um-container)
   - [Listando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#listando-containers)
   - [Removendo Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-containers)
   - [Pausando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#pausando-containers)
@@ -50,6 +50,8 @@ Aqui está a tabela com uma coluna adicional contendo exemplos de uso para cada 
 | update   | Atualiza a configuração de um ou mais containers.                                                  | `docker update --memory 512m <container_id>`                                                         |
 | wait     | Bloqueia até que um ou mais Containers parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
 
+---
+
 ## Docker Images
 
 ### Processo de criação de imagens
@@ -66,6 +68,8 @@ docker build -t <nome_da_imagem>:<tag> <caminho_para_o_Dockerfile>
 - `<tag>` é a tag (versão ou identificador da versão) que você deseja atribuir à imagem. Por exemplo v1.0.0
 - `<caminho_para_o_Dockerfile>` é o caminho para o Dockerfile no sistema de arquivos local. Caso o comando seja executado na pasta onde encontra-se o arquivo DOCKERFILE, pode-se utilizar `.` ao invés do caminho.
 
+---
+
 ### Processo de publicação de imagens
 
 **Efetuar login no Docker Registry:**
@@ -76,6 +80,8 @@ docker login <registry_url>
 
 - `<registry_url>` é o URL do Registry onde você deseja fazer login. Caso não informe essa url, o docker assume que é o Docker Registry
 
+---
+
 **Publicar a imagem no Docker Registry:**
 
 ```bash
@@ -83,6 +89,8 @@ docker push <nome_da_imagem>
 ```
 
 - `<nome_da_imagem>` é o nome da imagem que você deseja publicar.
+
+---
 
 ### Criando um container
 
@@ -92,6 +100,8 @@ docker run -d --name <nome_do_container> <nome_da_imagem>
 
 - `<nome_do_container>` é o nome que você deseja dar ao container.
 - `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
+
+---
 
 ### Listando Imagens
 
@@ -109,6 +119,8 @@ docker image ls
 
 Ambos os comandos produzirão uma saída semelhante, mostrando informações sobre as imagens, como nome, tag, ID da imagem, tamanho e quando foram criadas.
 
+---
+
 ### Removendo Imagens
 
 Para apagar uma ou mais imagens Docker, você pode usar o comando `docker rmi`. Aqui estão os comandos para apagar imagens:
@@ -121,6 +133,8 @@ docker rmi <image_id>
 
 Substitua `<image_id>` pelo ID da imagem que você deseja apagar.
 
+---
+
 **Apagar várias imagens ao mesmo tempo:**
 
 ```bash
@@ -129,17 +143,23 @@ docker rmi <image_id_1> <image_id_2> ... <image_id_n>
 
 Substitua `<image_id_1>`, `<image_id_2>`, etc., pelos IDs das imagens que você deseja apagar.
 
+---
+
 **Apagar todas as imagens não utilizadas (sem nenhum container associado):**
 
 ```bash
 docker image prune
 ```
 
+---
+
 **Remove todas as imagens que não estão sendo usadas por containers**
 
 ```bash
 docker image prune -a
 ```
+
+---
 
 ## Docker Containers
 
@@ -154,6 +174,8 @@ docker ps
 ```
 
 Este comando lista todos os Containers em execução no momento.
+
+---
 
 **Listar todos os Containers, incluindo os parados:**
 
@@ -171,11 +193,15 @@ docker ps -a --filter "status=exited"
 
 Isso listará apenas os Containers que estão no estado "exited" (parados).
 
+---
+
 **Pausa todos os containers que estão rodando**
 
 ```bash
 docker kill $ (docker ps -q)
 ```
+
+---
 
 ### Removendo Containers
 
@@ -189,6 +215,8 @@ docker rm <container_id>
 
 Substitua `<container_id>` pelo ID do container que você deseja apagar.
 
+---
+
 **Apagar vários Containers ao mesmo tempo:**
 
 ```bash
@@ -197,11 +225,15 @@ docker rm <container_id_1> <container_id_2> ... <container_id_n>
 
 Substitua `<container_id_1>`, `<container_id_2>`, etc., pelos IDs dos Containers que você deseja apagar.
 
+---
+
 **Apagar todos os Containers parados:**
 
 ```bash
 docker container prune
 ```
+
+---
 
 **Apagar um container forçadamente (em execução ou parado):**
 
@@ -211,11 +243,15 @@ docker rm -f <container_id>
 
 Este comando força a remoção do container, mesmo que ele esteja em execução.
 
+---
+
 **Remove todos os containers pausados, todo o cache de build, todas as redes  não utilizadas por containers e todas as imagens sem tags**
 
 ```bash
 docker rm $(docker ps -a -q)
 ```
+
+---
 
 ### Pausando Containers
 
@@ -225,17 +261,23 @@ docker rm $(docker ps -a -q)
 docker pause <nome_do_container>
 ```
 
+---
+
 **Para pausar vários Containers simultaneamente:**
 
 ```bash
 docker pause <nome_do_container1> <nome_do_container2> <nome_do_containerN>
 ```
 
+---
+
 **Pausa todos os containers em execução**
 
 ```bash
 docker kill $ (docker ps -q)
 ```
+
+---
 
 ### Interagindo com um container em execução
 
@@ -244,6 +286,8 @@ Para interagir com um container em execução, você pode usar o comando `docker
 ```bash
 docker exec [opções] <container_id ou container_name> [comando]
 ```
+
+---
 
 - `<container_id ou container_name>` é o ID ou o nome do container com o qual você deseja interagir.
 - `[comando]` é o comando que você deseja executar dentro do container.
@@ -255,6 +299,8 @@ docker exec -it <container_id ou container_name> /bin/bash
 ```
 
 Isso abrirá um shell interativo dentro do container especificado, permitindo que você execute comandos e interaja com o ambiente dentro do container.
+
+---
 
 ### Exemplo prático
 
