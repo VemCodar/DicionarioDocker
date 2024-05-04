@@ -6,6 +6,7 @@
   - [Processo de publicação de imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#processo-de-publica%C3%A7%C3%A3o-de-imagens)
   - [Removendo Imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-imagens)
 - [Docker Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#docker-containers)
+  - [Criando um container](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#criando_um-containers)
   - [Listando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#listando-containers)
   - [Removendo Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-containers)
   - [Pausando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#pausando-containers)
@@ -65,15 +66,6 @@ docker build -t <nome_da_imagem>:<tag> <caminho_para_o_Dockerfile>
 - `<tag>` é a tag (versão ou identificador da versão) que você deseja atribuir à imagem. Por exemplo v1.0.0
 - `<caminho_para_o_Dockerfile>` é o caminho para o Dockerfile no sistema de arquivos local. Caso o comando seja executado na pasta onde encontra-se o arquivo DOCKERFILE, pode-se utilizar `.` ao invés do caminho.
 
-**Rodar um container com a imagem criada:**
-
-```bash
-docker run -d --name <nome_do_container> <nome_da_imagem>
-```
-
-- `<nome_do_container>` é o nome que você deseja dar ao container.
-- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
-
 ### Processo de publicação de imagens
 
 **Efetuar login no Docker Registry:**
@@ -91,6 +83,15 @@ docker push <nome_da_imagem>
 ```
 
 - `<nome_da_imagem>` é o nome da imagem que você deseja publicar.
+
+### Criando um container
+
+```bash
+docker run -d --name <nome_do_container> <nome_da_imagem>
+```
+
+- `<nome_do_container>` é o nome que você deseja dar ao container.
+- `<nome_da_imagem>` é o nome da imagem que você deseja usar para criar o container.
 
 ### Listando Imagens
 
