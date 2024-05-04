@@ -6,9 +6,9 @@
   - [Processo de publicação de imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#processo-de-publica%C3%A7%C3%A3o-de-imagens)
   - [Removendo Imagens](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-imagens)
 - [Docker Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#docker-containers)
-  - [Listando Contêineres](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#listando-cont%C3%AAineres)
-  - [Removendo Contêineres](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-cont%C3%AAineres)
-  - [Pausando Contêineres](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#pausando-cont%C3%AAineres)
+  - [Listando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#listando-cont%C3%AAineres)
+  - [Removendo Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#removendo-cont%C3%AAineres)
+  - [Pausando Containers](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#pausando-cont%C3%AAineres)
   - [Interagindo com um contêiner em execução](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#interagindo-com-um-cont%C3%AAiner-em-execu%C3%A7%C3%A3o)
   - [Exemplo prático](https://github.com/VemCodar/DicionarioDocker/blob/main/README.md#exemplo-pr%C3%A1tico)
 
@@ -30,24 +30,24 @@ Aqui está a tabela com uma coluna adicional contendo exemplos de uso para cada 
 | history  | Mostra o histórico de uma imagem.                                                                  | `docker history <image_name>`                                                                        |
 | import   | Importa o conteúdo de um arquivo tar para criar uma imagem de sistema de arquivos.                 | `docker import arquivo.tar`                                                                          |
 | inspect  | Retorna informações de baixo nível sobre objetos Docker.                                             | `docker inspect <object_id>`                                                                         |
-| kill     | Mata um ou mais contêineres em execução.                                                           | `docker kill <container_id>`                                                                         |
+| kill     | Mata um ou mais Containers em execução.                                                           | `docker kill <container_id>`                                                                         |
 | load     | Carrega uma imagem de um arquivo tar ou STDIN.                                                      | `docker load < arquivo.tar`                                                                           |
 | logs     | Busca os logs de um contêiner.                                                                      | `docker logs <container_id>`                                                                         |
-| pause    | Pausa todos os processos dentro de um ou mais contêineres.                                          | `docker pause <container_id>`                                                                        |
+| pause    | Pausa todos os processos dentro de um ou mais Containers.                                          | `docker pause <container_id>`                                                                        |
 | port     | Lista mapeamentos de porta ou um mapeamento específico para o contêiner.                             | `docker port <container_id>`                                                                         |
 | rename   | Renomeia um contêiner.                                                                              | `docker rename <container_name> <new_container_name>`                                                |
-| restart  | Reinicia um ou mais contêineres.                                                                   | `docker restart <container_id>`                                                                      |
-| rm       | Remove um ou mais contêineres.                                                                     | `docker rm <container_id>`                                                                           |
+| restart  | Reinicia um ou mais Containers.                                                                   | `docker restart <container_id>`                                                                      |
+| rm       | Remove um ou mais Containers.                                                                     | `docker rm <container_id>`                                                                           |
 | rmi      | Remove uma ou mais imagens.                                                                        | `docker rmi <image_id>`                                                                              |
 | save     | Salva uma ou mais imagens em um arquivo tar (transmitido para STDOUT por padrão).                   | `docker save <image_name> > arquivo.tar`                                                             |
-| start    | Inicia um ou mais contêineres parados.                                                             | `docker start <container_id>`                                                                        |
+| start    | Inicia um ou mais Containers parados.                                                             | `docker start <container_id>`                                                                        |
 | stats    | Exibe um fluxo ao vivo das estatísticas de uso de recursos do(s) contêiner(es).                     | `docker stats <container_id>`                                                                        |
-| stop     | Para um ou mais contêineres em execução.                                                           | `docker stop <container_id>`                                                                         |
+| stop     | Para um ou mais Containers em execução.                                                           | `docker stop <container_id>`                                                                         |
 | tag      | Cria uma tag TARGET_IMAGE que se refere a SOURCE_IMAGE.                                              | `docker tag <image_id> <new_image_name>:<tag>`                                                        |
 | top      | Exibe os processos em execução de um contêiner.                                                     | `docker top <container_id>`                                                                          |
-| unpause  | Despausa todos os processos dentro de um ou mais contêineres.                                        | `docker unpause <container_id>`                                                                      |
-| update   | Atualiza a configuração de um ou mais contêineres.                                                  | `docker update --memory 512m <container_id>`                                                         |
-| wait     | Bloqueia até que um ou mais contêineres parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
+| unpause  | Despausa todos os processos dentro de um ou mais Containers.                                        | `docker unpause <container_id>`                                                                      |
+| update   | Atualiza a configuração de um ou mais Containers.                                                  | `docker update --memory 512m <container_id>`                                                         |
+| wait     | Bloqueia até que um ou mais Containers parem, e então imprime seus códigos de saída.              | `docker wait <container_id>`                                                                         |
 
 ## Docker Images
 
@@ -142,33 +142,33 @@ docker image prune -a
 
 ## Docker Containers
 
-### Listando Contêineres
+### Listando Containers
 
-Para listar os contêineres em execução e os que estão parados, você pode usar os seguintes comandos Docker:
+Para listar os Containers em execução e os que estão parados, você pode usar os seguintes comandos Docker:
 
-**Listar contêineres em execução:**
+**Listar Containers em execução:**
 
 ```bash
 docker ps
 ```
 
-Este comando lista todos os contêineres em execução no momento.
+Este comando lista todos os Containers em execução no momento.
 
-**Listar todos os contêineres, incluindo os parados:**
+**Listar todos os Containers, incluindo os parados:**
 
 ```bash
 docker ps -a
 ```
 
-Este comando lista todos os contêineres, tanto os em execução quanto os parados.
+Este comando lista todos os Containers, tanto os em execução quanto os parados.
 
-Se você deseja apenas listar os contêineres que estão parados (ou seja, não em execução), você pode usar um comando de filtro junto com o comando `docker ps -a`. Por exemplo:
+Se você deseja apenas listar os Containers que estão parados (ou seja, não em execução), você pode usar um comando de filtro junto com o comando `docker ps -a`. Por exemplo:
 
 ```bash
 docker ps -a --filter "status=exited"
 ```
 
-Isso listará apenas os contêineres que estão no estado "exited" (parados).
+Isso listará apenas os Containers que estão no estado "exited" (parados).
 
 **Pausa todos os containers que estão rodando**
 
@@ -176,9 +176,9 @@ Isso listará apenas os contêineres que estão no estado "exited" (parados).
 docker kill $ (docker ps -q)
 ```
 
-### Removendo Contêineres
+### Removendo Containers
 
-Para apagar um ou mais contêineres Docker, você pode usar o comando `docker rm`. Aqui estão os comandos:
+Para apagar um ou mais Containers Docker, você pode usar o comando `docker rm`. Aqui estão os comandos:
 
 **Apagar um contêiner específico:**
 
@@ -188,15 +188,15 @@ docker rm <container_id>
 
 Substitua `<container_id>` pelo ID do contêiner que você deseja apagar.
 
-**Apagar vários contêineres ao mesmo tempo:**
+**Apagar vários Containers ao mesmo tempo:**
 
 ```bash
 docker rm <container_id_1> <container_id_2> ... <container_id_n>
 ```
 
-Substitua `<container_id_1>`, `<container_id_2>`, etc., pelos IDs dos contêineres que você deseja apagar.
+Substitua `<container_id_1>`, `<container_id_2>`, etc., pelos IDs dos Containers que você deseja apagar.
 
-**Apagar todos os contêineres parados:**
+**Apagar todos os Containers parados:**
 
 ```bash
 docker container prune
@@ -216,7 +216,7 @@ Este comando força a remoção do contêiner, mesmo que ele esteja em execuçã
 docker rm $(docker ps -a -q)
 ```
 
-### Pausando Contêineres
+### Pausando Containers
 
 **Para pausar um contêiner específico:**
 
@@ -224,7 +224,7 @@ docker rm $(docker ps -a -q)
 docker pause <nome_do_contêiner>
 ```
 
-**Para pausar vários contêineres simultaneamente:**
+**Para pausar vários Containers simultaneamente:**
 
 ```bash
 docker pause <nome_do_contêiner1> <nome_do_contêiner2> <nome_do_contêinerN>
