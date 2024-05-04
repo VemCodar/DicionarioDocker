@@ -236,7 +236,7 @@ docker pause <nome_do_contêiner1> <nome_do_contêiner2> <nome_do_contêinerN>
 docker kill $ (docker ps -q)
 ```
 
-### Interagindo com um contêiner em execução
+### Interagindo com um container em execução
 
 Para interagir com um contêiner em execução, você pode usar o comando `docker exec`. Este comando permite executar comandos dentro de um contêiner em execução. Aqui está o formato geral do comando:
 
