@@ -137,7 +137,13 @@ Substitua `<image_id_1>`, `<image_id_2>`, etc., pelos IDs das imagens que você 
 **Apagar todas as imagens não utilizadas (sem nenhum container associado):**
 
 ```bash
-docker image prune
+docker rmi $(docker images -q)
+```
+
+**Para forçar a remoção das imagens (cuidado, se tiver container associado o mesmo será exlcuído):**
+
+```bash
+docker rmi -f $(docker images -q)
 ```
 
 ---
